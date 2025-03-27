@@ -1,1 +1,3 @@
-# template-repository
+# librtui
+
+Radxa TUI library

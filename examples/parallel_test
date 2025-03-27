@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+worker() {
+	local param="$1"
+
+	__lock_fd "$mutex"
+	source "$mutex"
+
+	if (( SHARED_DATA * 2 == param )); then
+		echo "Current counter = $SHARED_DATA, new counter = $param"
+		echo "SHARED_DATA=$param" > "$mutex"
+		__unlock_fd
+		sleep "$((param / 10))"
+		echo "Job $param completed."
+	else
+		return 0
+	fi
+}
+
+main() {
+	set -euo pipefail
+	shopt -s nullglob
+
+	LC_ALL="C"
+	LANG="C"
+	LANGUAGE="C"
+
+	DEBUG="${DEBUG:-false}"
+
+	local SCRIPT_DIR
+	SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+	if [[ -f "$SCRIPT_DIR/../src/lib/librtui/tui.sh" ]]; then
+		# shellcheck source=src/tui.sh
+		source "$SCRIPT_DIR/../src/lib/librtui/tui.sh"
+	else
+		# shellcheck source=src/tui.sh
+		source "/usr/lib/librtui/tui.sh"
+	fi
+
+	local mutex
+	mutex="$(mktemp)"
+	echo "SHARED_DATA=1" > "$mutex"
+
+	for i in {1..64}; do
+		__request_parallel
+		worker "$i" &
+	done
+
+	if __wait_parallel; then
+		echo "All parallel workers are completed."
+	else
+		echo "At least one parallel worker failed." >&2
+	fi
+
+	rm "$mutex"
+}
+
+main "$@"

@@ -1,5 +1,78 @@
-template-repository (1.0-1) unstable; urgency=medium
+librtui (0.1.6) jammy; urgency=medium
+
+  [ CodeChenL ]
+  * feat: add function checklist_gettitle
+  * fix: apply suggestions from code review
+  * fix: use tab
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 07 Aug 2024 08:32:31 +0000
+
+librtui (0.1.5) jammy; urgency=medium
+
+  [ CodeChenL ]
+  * feat: menu: export RTUI_MENU_SELECTED_INDEX
+  * feat: utils: add function __external_script_type_check
+
+  [ ZHANG Yuntian ]
+  * tests: add menu related test cases
+  * fix: exec requires special variable syntax
+  * refactor: rename to __lock_fd
+  * feat: add more lock functions
+  * fix: remove get_real_user
+  * fix: __wait_parallel will wait for all jobs to finish
+  * test: add example code for parallel functions
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 31 Jul 2024 07:24:14 +0000
+
+librtui (0.1.4) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: avoid [ and use [[
+
+  [ CodeChenL ]
+  * feat: add util function get_real_user
+  * fix: close some change request
+  * fix: remove redundant echo
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 26 Jun 2024 10:59:33 +0000
+
+librtui (0.1.3) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: allow utils.sh to be sourced multiple times
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 24 May 2024 02:25:44 +0000
+
+librtui (0.1.2) jammy; urgency=medium
+
+  [ CodeChenL ]
+  * refactor: change scr directory structure
+  * feat: add function librtui_set_palette
+  * feat: add more util function from RSDK
+
+  [ ZHANG Yuntian ]
+  * feat: add __lock_on_file
+  * feat: add selection empty helpers
+  * test: add usage of selection empty helpers
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 22 May 2024 09:08:52 +0000
+
+librtui (0.1.1) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * feat: allow tui_start to configure program title
+
+  [ dependabot[bot] ]
+  * build(deps): Bump peaceiris/actions-mdbook from 1 to 2
+
+  [ CodeChenL ]
+  * fix: fix wrong install path
+  * fix: remove function log
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 23 Apr 2024 06:36:50 +0000
+
+librtui (0.1.0) jammy; urgency=medium
 
   * Initial release
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 02 Apr 2024 18:01:54 +0800

@@ -1,0 +1,8 @@
+/.debhelper
+/debhelper-build-stamp
+/files
+/librtui*/
+/*.debhelper.log
+/*.postrm.debhelper
+/*.substvars
+/tmp

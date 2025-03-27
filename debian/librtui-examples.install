@@ -1,0 +1,3 @@
+#!/usr/bin/dh-exec
+
+examples/* /usr/share/librtui
